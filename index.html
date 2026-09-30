@@ -122,21 +122,26 @@
     .project:nth-child(3) .proj-glow{background:radial-gradient(circle,rgba(255,107,157,.08),transparent)}
     .project:nth-child(4) .proj-glow{background:radial-gradient(circle,rgba(255,183,77,.08),transparent)}
     .project:hover .proj-glow{opacity:1}
-    .proj-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:16px;transition:transform .3s}
+    .proj-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+    .proj-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:transform .3s}
     .project:hover .proj-icon{transform:scale(1.15) rotate(5deg)}
     .proj-icon-1{background:rgba(108,99,255,.15);color:var(--accent)}
     .proj-icon-2{background:rgba(0,212,170,.15);color:var(--accent2)}
     .proj-icon-3{background:rgba(255,107,157,.15);color:var(--accent3)}
     .proj-icon-4{background:rgba(255,183,77,.15);color:#FFB74D}
+    .vercel-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:20px;font-size:.72rem;font-weight:600;background:rgba(0,212,170,.1);border:1px solid rgba(0,212,170,.25);color:var(--accent2);letter-spacing:0.5px}
+    .vercel-badge .live-dot{width:6px;height:6px;border-radius:50%;background:#00D4AA;box-shadow:0 0 8px #00D4AA;animation:pulse 2s infinite}
     .proj-type{font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);font-weight:600;margin-bottom:6px}
     .proj-title{font-size:1.15rem;font-weight:700;margin-bottom:8px}
     .proj-desc{color:var(--muted);font-size:.9rem;font-family:'Inter',sans-serif;margin-bottom:14px;line-height:1.6;flex:1}
     .tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
     .tag{font-size:.76rem;padding:5px 10px;border-radius:8px;background:rgba(108,99,255,.08);color:var(--accent);border:1px solid rgba(108,99,255,.1);font-weight:500;transition:all .25s}
     .tag:hover{background:rgba(108,99,255,.18);transform:translateY(-1px)}
-    .proj-links{display:flex;gap:10px;margin-top:auto}
+    .proj-links{display:flex;gap:12px;margin-top:auto;flex-wrap:wrap;align-items:center}
     .proj-links a{font-size:.85rem;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:6px;transition:all .25s;font-weight:500;cursor:none}
     .proj-links a:hover{color:var(--accent);transform:translateX(4px)}
+    .proj-links a.btn-live-vercel{color:var(--accent2);font-weight:600;background:rgba(0,212,170,.08);border:1px solid rgba(0,212,170,.2);padding:5px 12px;border-radius:8px;transition:all .25s}
+    .proj-links a.btn-live-vercel:hover{background:rgba(0,212,170,.2);color:#fff;box-shadow:0 2px 12px rgba(0,212,170,.3);transform:translateY(-2px)}
 
     /* ABOUT */
     .about-grid{display:grid;grid-template-columns:1fr 380px;gap:28px}
@@ -264,8 +269,8 @@
               <a href="#contact" class="btn btn-outline magnetic">✉ Contact Me</a>
             </div>
             <div class="hero-stats">
-              <div class="stat"><div class="stat-num">4+</div><div class="stat-label">Projects</div></div>
-              <div class="stat"><div class="stat-num">UI/UX</div><div class="stat-label">Specialist</div></div>
+              <div class="stat"><div class="stat-num">4+</div><div class="stat-label">Vercel Apps</div></div>
+              <div class="stat"><div class="stat-num">Full-Stack</div><div class="stat-label">& UI/UX</div></div>
             </div>
           </div>
 
@@ -275,17 +280,17 @@
               <div class="avatar">KS</div>
               <div>
                 <div class="hero-card-name">S M Kishore</div>
-                <div class="hero-card-role">UI / UX Designer · Frontend-friendly</div>
+                <div class="hero-card-role">Full-Stack & UI/UX Developer</div>
                 <div class="hero-card-loc">📍 India</div>
               </div>
             </div>
             <div class="skills-grid">
-              <div class="chip magnetic">HTML</div>
-              <div class="chip magnetic">CSS</div>
+              <div class="chip magnetic">React</div>
+              <div class="chip magnetic">TypeScript</div>
+              <div class="chip magnetic">Vercel</div>
+              <div class="chip magnetic">Supabase</div>
+              <div class="chip magnetic">Google GenAI</div>
               <div class="chip magnetic">Figma</div>
-              <div class="chip magnetic">Adobe Photoshop</div>
-              <div class="chip magnetic">Unity</div>
-              <div class="chip magnetic">ReactJS</div>
             </div>
             <div class="card-divider"></div>
             <a href="https://github.com/tn56kid1417" target="_blank" rel="noopener" class="github-link">
@@ -301,56 +306,99 @@
     <section id="work" class="section">
       <div class="container">
         <div class="section-header reveal">
-          <div class="section-label">Portfolio</div>
-          <div class="section-title">Selected Projects</div>
+          <div class="section-label">Live Deployments</div>
+          <div class="section-title">Projects Deployed on Vercel</div>
         </div>
         <div class="projects-grid">
+          <!-- Project 1: TwinERP -->
           <article class="project reveal-left">
             <div class="proj-glow"></div>
-            <div class="proj-icon proj-icon-1">🏭</div>
-            <div class="proj-type">Full-Stack</div>
-            <div class="proj-title">Industrial-ERP</div>
-            <div class="proj-desc">All-in-one ERP solution for managing industrial workflows digitally. Integrating major business processes into a unified platform for better operational efficiency.</div>
-            <div class="tags"><span class="tag">JavaScript</span><span class="tag">ERP</span><span class="tag">Business</span></div>
+            <div class="proj-top">
+              <div class="proj-icon proj-icon-1">⚡</div>
+              <span class="vercel-badge"><span class="live-dot"></span> Deployed on Vercel</span>
+            </div>
+            <div class="proj-type">Full-Stack · Enterprise ERP & HR</div>
+            <div class="proj-title">TwinERP</div>
+            <div class="proj-desc">Complete enterprise ERP and HR Management solution with Supabase database integration, Google Gemini AI capabilities, interactive D3 analytics, and automated reporting.</div>
+            <div class="tags">
+              <span class="tag">TypeScript</span>
+              <span class="tag">React</span>
+              <span class="tag">Supabase</span>
+              <span class="tag">Google GenAI</span>
+              <span class="tag">D3.js</span>
+            </div>
             <div class="proj-links">
-              <a href="https://github.com/tn56kid1417/Industrial-ERP" target="_blank" rel="noopener">→ GitHub</a>
-              <a href="#">→ Demo</a>
+              <a href="https://github.com/tn56kid1417/TwinERP" target="_blank" rel="noopener">→ GitHub</a>
+              <a href="https://twin-erp.vercel.app" target="_blank" rel="noopener" class="btn-live-vercel">↗ Live on Vercel</a>
             </div>
           </article>
+
+          <!-- Project 2: Finance Application -->
           <article class="project reveal-right">
             <div class="proj-glow"></div>
-            <div class="proj-icon proj-icon-2">🚗</div>
-            <div class="proj-type">Full-Stack</div>
-            <div class="proj-title">Java JDBC — Automobile Management</div>
-            <div class="proj-desc">Full-stack Java exercise focused on architecture and data flows. Improved usability for admin tasks and data entry forms with better UX patterns.</div>
-            <div class="tags"><span class="tag">Java</span><span class="tag">JDBC</span><span class="tag">Database</span></div>
+            <div class="proj-top">
+              <div class="proj-icon proj-icon-2">💰</div>
+              <span class="vercel-badge"><span class="live-dot"></span> Deployed on Vercel</span>
+            </div>
+            <div class="proj-type">AI Web App · Finance</div>
+            <div class="proj-title">Finance Application</div>
+            <div class="proj-desc">Intelligent organizational finance management system integrated with Google Gemini AI for smart budget analysis, expense tracking, and smooth animated dashboards.</div>
+            <div class="tags">
+              <span class="tag">TypeScript</span>
+              <span class="tag">React</span>
+              <span class="tag">Google GenAI</span>
+              <span class="tag">TailwindCSS</span>
+              <span class="tag">Motion</span>
+            </div>
             <div class="proj-links">
-              <a href="https://github.com/tn56kid1417/Java-JDBC-Advanced-Automobile-Management" target="_blank" rel="noopener">→ GitHub</a>
-              <a href="#">→ Screenshots</a>
+              <a href="https://github.com/tn56kid1417/Finance-Application" target="_blank" rel="noopener">→ GitHub</a>
+              <a href="https://finance-application-iota-woad.vercel.app" target="_blank" rel="noopener" class="btn-live-vercel">↗ Live on Vercel</a>
             </div>
           </article>
+
+          <!-- Project 3: CRM-Drive -->
           <article class="project reveal-left">
             <div class="proj-glow"></div>
-            <div class="proj-icon proj-icon-3">💼</div>
-            <div class="proj-type">Portfolio</div>
+            <div class="proj-top">
+              <div class="proj-icon proj-icon-3">📊</div>
+              <span class="vercel-badge"><span class="live-dot"></span> Deployed on Vercel</span>
+            </div>
+            <div class="proj-type">Web App · Sales CRM</div>
+            <div class="proj-title">CRM DRIVE</div>
+            <div class="proj-desc">Comprehensive Customer Relationship Management platform featuring lead lifecycle tracking, client communications, and real-time sales pipeline visualizations with Recharts.</div>
+            <div class="tags">
+              <span class="tag">TypeScript</span>
+              <span class="tag">React</span>
+              <span class="tag">Recharts</span>
+              <span class="tag">Zustand</span>
+              <span class="tag">TailwindCSS</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://github.com/tn56kid1417/CRM-Drive" target="_blank" rel="noopener">→ GitHub</a>
+              <a href="https://crm-drive.vercel.app" target="_blank" rel="noopener" class="btn-live-vercel">↗ Live on Vercel</a>
+            </div>
+          </article>
+
+          <!-- Project 4: Interactive Portfolio -->
+          <article class="project reveal-right">
+            <div class="proj-glow"></div>
+            <div class="proj-top">
+              <div class="proj-icon proj-icon-4">✨</div>
+              <span class="vercel-badge"><span class="live-dot"></span> Deployed on Vercel</span>
+            </div>
+            <div class="proj-type">Frontend · UI/UX</div>
             <div class="proj-title">Portfolio Website</div>
-            <div class="proj-desc">Modern, responsive portfolio showcasing design work and development skills. Built with clean HTML, CSS, and interactive JavaScript for smooth user experience.</div>
-            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+            <div class="proj-desc">High-performance developer and UI/UX portfolio featuring interactive canvas particle dynamics, 3D card tilt effects, custom cursor interactions, and responsive dark glass aesthetic.</div>
+            <div class="tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Canvas</span>
+              <span class="tag">Glassmorphism</span>
+            </div>
             <div class="proj-links">
               <a href="https://github.com/tn56kid1417/portfolio" target="_blank" rel="noopener">→ GitHub</a>
-              <a href="#">→ Live</a>
-            </div>
-          </article>
-          <article class="project reveal-right">
-            <div class="proj-glow"></div>
-            <div class="proj-icon proj-icon-4">✓</div>
-            <div class="proj-type">Task</div>
-            <div class="proj-title">TASK-1</div>
-            <div class="proj-desc">Development project showcasing problem-solving skills and technical implementation. A focused exercise in building efficient and well-structured solutions.</div>
-            <div class="tags"><span class="tag">Development</span><span class="tag">Code</span></div>
-            <div class="proj-links">
-              <a href="https://github.com/tn56kid1417/TASK-1" target="_blank" rel="noopener">→ GitHub</a>
-              <a href="#">→ Details</a>
+              <a href="https://portfolio-chi-rust-38.vercel.app" target="_blank" rel="noopener" class="btn-live-vercel">↗ Live on Vercel</a>
             </div>
           </article>
         </div>
